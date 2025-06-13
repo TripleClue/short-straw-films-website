@@ -22,7 +22,7 @@ class Particle {
         return (
             this.x < this.borderThreshold ||
             this.x > window.innerWidth - this.borderThreshold ||
-            this.y < 125 + this.borderThreshold ||
+            this.y < 102 + this.borderThreshold ||
             this.y > window.innerHeight - this.borderThreshold
         );
     }
@@ -43,7 +43,7 @@ class Particle {
 
     update() {
         // Get navigation bar height (including divider)
-        const navHeight = 125;
+        const navHeight = 102;
 
         // Update swirl angle with time-based variation
         this.angle += this.angleSpeed;
@@ -109,7 +109,7 @@ class Particle {
 
     draw(ctx) {
         // Get navigation bar height (including divider)
-        const navHeight = 125;
+        const navHeight = 102;
         
         // Only draw if below navigation bar
         if (this.y > navHeight) {
@@ -143,7 +143,7 @@ class ParticleSystem {
         window.addEventListener('resize', () => this.resize());
 
         // Create particles
-        const navHeight = 125;
+        const navHeight = 102;
         for (let i = 0; i < 1000; i++) { // Increased to 1000 particles
             this.particles.push(new Particle(
                 Math.random() * window.innerWidth,
