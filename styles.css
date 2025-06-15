@@ -78,7 +78,7 @@ nav .logo {
 nav a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     transition: opacity 0.3s ease;
     font-weight: 300;
     letter-spacing: -0.02em;
@@ -157,72 +157,100 @@ main.home-page {
 }
 
 /* Mobile adjustments */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     nav {
-        flex-direction: column;
-        height: auto;
-        padding: 1rem 2rem;
-        border-bottom: none;
+        display: flex; /* Use flexbox for horizontal layout */
+        flex-direction: row; /* Keep items in a single row */
+        flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+        height: 102; 
+        padding: 0.8rem 1rem; /* Smaller padding for mobile viewports */
+        border-bottom: 2px solid #333;
+        justify-content: space-between; /* Distribute left and right nav items */
+        align-items: center; /* Vertically align items in the center */
     }
 
     nav::after {
-        display: none;
+        display: none; /* Hide the divider on mobile */
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        text-align: center;
-        padding-top: 1rem;
+    nav .logo-space {
+        position: absolute; /* Position the logo absolutely for perfect centering */
+        left: 50%; /* Start at the horizontal center of the nav */
+        transform: translateX(-50%); /* Adjust by half its own width to truly center */
+        width: 100px; /* Set a specific width for the logo container on mobile */
+        height: 60px; /* Set a specific height for the logo container on mobile */
+        margin: 0; /* Remove any conflicting margins */
+        display: flex; /* Make it a flex container to center the image inside */
+        align-items: center; /* Vertically center the logo image */
+        justify-content: center; /* Horizontally center the logo image */
+        padding: 0; /* Remove padding to keep logo snug in its space */
+    }
+
+    nav .logo-space a {
+        display: flex; /* Make the anchor tag a flex container */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        width: 100%; /* Ensure the anchor takes full width of its parent */
+        height: 100%; /* Ensure the anchor takes full height of its parent */
+    }
+
+    nav .logo {
+        max-width: 110%; /* Adjust logo size within its designated space */
+        max-height: 110%;
+        object-fit: contain; /* Ensure the image scales properly */
+        display: block; /* Ensure it behaves as a block element */
     }
 
     nav .left-nav,
     nav .right-nav {
-        margin: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        margin: 0; /* Remove desktop margins */
+        flex-grow: 0; /* Allow these sections to grow and take available space */
+        width: 80px; /* Let content determine the width initially */
+        display: flex; /* Make them flex containers for their list items */
+        flex-direction: column; 
+        gap: 0.3rem; /* Smaller spacing between nav items */
+        list-style: none; /* Remove bullet points */
+        padding: 0; /* Remove default padding */
     }
 
-    nav .logo-space {
-        position: static;
-        transform: none;
-        width: 150px;
-        height: 40px;
-        margin-bottom: 1rem;
+    nav .left-nav {
+        justify-content: left; 
+    }
+
+    nav .right-nav {
+        justify-content: right; 
     }
 
     nav a {
-        font-size: 1.2rem;
+        font-size: 1.5rem; /* Increase font size for mobile navigation links */
     }
 
     main {
-        padding: 2rem 1rem;
+        padding: 2rem 1rem; /* Adjust general main content padding for mobile */
     }
 
     main .about-section,
     main .team-section {
-        flex-direction: column;
+        flex-direction: column; /* Stack sections vertically on mobile */
         padding: 2rem 1rem;
         gap: 2rem;
     }
 
     .section-heading {
-        text-align: center;
-        flex: none;
-        width: 100%;
+        text-align: center; /* Center headings in sections */
+        flex: none; /* Remove flex sizing */
+        width: 100%; /* Occupy full width */
     }
 
     .section-content {
-        text-align: center;
+        text-align: left; /* Center content in sections */
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Smaller general heading font size for mobile */
     }
 
     h1.home-heading {
-        font-size: 2rem;
+        font-size: 2rem; /* Maintain slightly larger size for home heading */
     }
 } 
